@@ -33,9 +33,30 @@ div .subSection {
   overflow: hidden;
 }
 
-.sectionTitle {
+/*
+span.sectionTitle {
   border: 1px solid black;
-  width: 25%;
+  font-size: 1.25em;
+  text-align: center;
+  position: absolute;
+  right: 0;
+  top: 0;
+} */
+
+span.mobileSubTitle {
+  width: 100%;
+  border: 1px solid black;
+  /* width: 25%; */
+  font-size: 1.25em;
+  text-align: center;
+  /* position: absolute;
+  right: 0;
+  top: 0; */
+}
+
+span {
+  border: 1px solid black;
+  width: 150px;
   font-size: 1.25em;
   text-align: center;
   position: absolute;
@@ -87,7 +108,8 @@ p {
     float: left;
   }
 
-  .mobileTitle {
+  .mobileTitle,
+  .mobileSubTitle {
     display: none;
   }
 
@@ -146,7 +168,8 @@ p {
     float: left;
   }
 
-  .mobileTitle {
+  .mobileTitle,
+  .mobileSubTitle {
     display: none;
   }
 
@@ -189,7 +212,12 @@ p {
 }
 
 @media (max-width: 767px) {
-  .otherTitle {
+  .otherTitle,
+  .otherSubTitle {
     display: none;
+  }
+
+  p {
+    padding-top: 25px;
   }
 }
