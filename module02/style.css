@@ -30,6 +30,7 @@ div .subSection {
   margin-right: 10px;
   margin-bottom: 20px;
   position: relative;
+  overflow: hidden;
 }
 
 .sectionTitle {
@@ -58,6 +59,11 @@ p {
   margin-top: 30px;
   margin-left: 5px;
   margin-right: 5px;
+}
+
+div .subSection:hover {
+  cursor: row-resize;
+  overflow-y: scroll;
 }
 
 .row {
