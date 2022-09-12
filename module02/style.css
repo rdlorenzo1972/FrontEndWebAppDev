@@ -13,6 +13,13 @@ h1 {
   text-align: center;
 }
 
+.mobileTitle {
+  text-align: left;
+  font-size: 1.25em;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding-left: 10px;
+}
+
 div .subSection {
   border: 1px solid black;
   background-color: lightgray;
@@ -73,6 +80,11 @@ p {
   .col-lg-12 {
     float: left;
   }
+
+  .mobileTitle {
+    display: none;
+  }
+
   .col-lg-1 {
     width: 8.33%;
   }
@@ -127,6 +139,11 @@ p {
   .col-md-12 {
     float: left;
   }
+
+  .mobileTitle {
+    display: none;
+  }
+
   .col-md-1 {
     width: 8.33%;
   }
@@ -162,5 +179,11 @@ p {
   }
   .col-md-12 {
     width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .otherTitle {
+    display: none;
   }
 }
