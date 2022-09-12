@@ -61,7 +61,7 @@ p {
   margin-right: 5px;
 }
 
-div .subSection:hover {
+.subSection:hover {
   cursor: row-resize;
   overflow-y: scroll;
 }
