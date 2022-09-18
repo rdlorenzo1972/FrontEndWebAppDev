@@ -3,21 +3,41 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Module 02 - Solution</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Module 03 - Solution</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <h1 class="otherTitle">Our Menu</h1>
-    <h1 class="mobileTitle">Categories</h1>
+    <header>
+      <nav id="header-nav" class="navbar navbar-default">
+        <div class="container" class=""pull-left">
+          <div class="navbar-header">
+            <h1>Food, LLC</h1>
+            <button type="button" class="navbar-toggle collapsed pull-right" data-toggle="collapse" data-target="#collapsable-nav" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+
+          <div id="collapsable-nav" class="collapse navbar-collapse">
+            <ul id="nav-list" class="nav navbar-nav navbar-right" >
+              <li class="text-center chicken"><a href="#chicken_site">Chicken</a></li>
+              <li class="text-center beef"><a href="#beef_site">Beef</a></li>
+              <li class="text-center sushi"><a href="#sushi_site">Sushi</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="container" id="menuTop"><h2 class="text-center">Our Menu</h2></div>
 
     <div class="row">
-      <div class="col-lg-4 col-md-6">
-        <div class="subSection">
-          <span class="sectionTitle chicken otherSubTitle">Chicken</span>
-          <span class="sectionTitle chicken mobileSubTitle"
-            >Chicken: Cooked with extra love, seasoning and to the perfect
-            temperature just like a pro.</span
-          >
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="subSection" id="chicken_site">
+          <span><h3 class="chicken text-center">Chicken</h3></span>
           <p>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error
             nobis ea veritatis soluta architecto modi! Voluptate consequatur
@@ -30,16 +50,13 @@
             blanditiis eos, quisquam soluta et beatae sed incidunt optio
             architecto impedit maiores eum id iste quaerat deserunt?
           </p>
+          <span class="sectionBottom"><a href="#menuTop">Back to Top</a></span>
         </div>
       </div>
 
-      <div class="col-lg-4 col-md-6">
-        <div class="subSection">
-          <span class="sectionTitle beef">Beef</span>
-          <span class="sectionTitle beef mobileSubTitle"
-            >Beef: Seasoned with only salt, pepper and garlic, and then cooked
-            low and slow over wood.</span
-          >
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="subSection" id="beef_site">
+          <span><h3 class="beef text-center">Beef</h3></span>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem
             pariatur quos incidunt tenetur, quaerat tempore vel inventore
@@ -53,16 +70,13 @@
             id saepe cumque quaerat nobis vero mollitia blanditiis animi, iste
             eius dolorem.
           </p>
+          <span class="sectionBottom"><a href="#menuTop">Back to Top</a></span>
         </div>
       </div>
 
-      <div class="col-lg-4 col-md-12">
-        <div class="subSection">
-          <span class="sectionTitle sushi">Sushi</span>
-          <span class="sectionTitle sushi mobileSubTitle"
-            >Sushi: Using only fresh fish caught that day from the local beach
-            vendors to the highest.</span
-          >
+      <div class="col-md-4 col-xs-12">
+        <div class="subSection" id="sushi_site">
+          <span><h3 class="sushi text-center">Sushi</h3></span>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Est maxime
             quidem magnam, similique, minima eveniet explicabo voluptatem ipsam
@@ -76,8 +90,11 @@
             nulla delectus debitis libero quibusdam, eveniet sed ex optio rem
             obcaecati atque, saepe voluptatem.
           </p>
+          <span class="sectionBottom"><a href="#menuTop">Back to Top</a></span>
         </div>
       </div>
     </div>
+    <script src="js/jquery-3.6.1.slim.js"></script>
+    <script src="js/bootstrap.min.js"></script>
   </body>
 </html>
