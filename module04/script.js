@@ -46,6 +46,10 @@ Good Bye Jim
     }
   }
   console.log(" "); // To add row between first and second list prints
+
+  //
+  // Array.prototype.map
+  //
   var mappingNames = function (oneName) {
     var firstLetter = oneName.charAt(0).toLowerCase();
 
@@ -89,4 +93,30 @@ Good Bye Jim
   // Alternate method to iterate through array
   //**********************************************************
   // mappedNamesVer2.forEach((element) => console.log(element));
+
+  //**********************************************************
+  // Bonus content
+  //**********************************************************
+  console.log(" "); // To add row between first and second list prints
+  var doubleArray = names.reduce(
+    (tester, name) => {
+      var firstLetter = name.charAt(0).toLowerCase();
+
+      if (firstLetter === "j") {
+        tester["bye"].push("Good Bye " + name);
+      } else {
+        tester["hello"].push("Hello " + name);
+      }
+
+      return tester;
+    },
+    { hello: [], bye: [] }
+  );
+
+  for (var I = 0; I < doubleArray["bye"].length; I++) {
+    console.log(doubleArray["bye"][I]);
+  }
+  for (var I = 0; I < doubleArray["hello"].length; I++) {
+    console.log(doubleArray["hello"][I]);
+  }
 })();
