@@ -321,5 +321,15 @@ $(function () {
     return html;
   }
 
+  // Random star-rating Integer generator
+  // Setting 5 based on a passed paramter is more resilient, but
+  // Instructiosn state to create function that 'produces a random
+  // number from 1 to 5 (inclusively). Also, a passed boolean could
+  // be used to determine if range begins with 0 ot 1.
+  function getRandomStarRating() {
+    var randomIntegerOneToFive = Math.floor(Math.random() * 5) + 1;
+    return randomIntegerOneToFive;
+  }
+
   global.$dc = dc;
 })(window);
