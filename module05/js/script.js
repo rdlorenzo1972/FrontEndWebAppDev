@@ -90,34 +90,34 @@ $(function () {
 
     // Code here to JHU MS Students to uadd random star ratings
     // Load home snippet page
-    var aboutHtmlUrl = "snippets/about.html";
-
-    $ajaxUtils.sendGetRequest(
-      aboutHtmlUrl,
-      function (aboutHtml) {
-        var propName = "";
-        var updatedString;
-        var randomStarRating = getRandomStarRating();
-        for (let i = 0; i < 5; i++) {
-          propName = propName + i.toString;
-          if (randomStarRating >= i) {
-            updatedString = "fa fa-star-o";
-          } else {
-            updatedString = "fa fa-star";
-          }
-          var starFillingToInsertIntoAboutPage = insertProperty(
-            aboutHtml,
-            propName,
-            updatedString
-          );
-        }
-        insertHtml("#main-content", starFillingToInsertIntoAboutPage);
-      },
-      false
-    ); // False here because we are getting just regular HTML from the server, so no need to process JSON.
+    // var aboutHtmlUrl = "snippets/about.html";
+    // $ajaxUtils.sendGetRequest(
+    //   aboutHtmlUrl,
+    //   function (aboutHtml) {
+    //     var propName = "";
+    //     var updatedString;
+    //     var randomStarRating = getRandomStarRating();
+    //     for (let i = 0; i < 5; i++) {
+    //       propName = propName + i.toString;
+    //       if (randomStarRating >= i) {
+    //         updatedString = "fa fa-star-o";
+    //       } else {
+    //         updatedString = "fa fa-star";
+    //       }
+    //       var starFillingToInsertIntoAboutPage = insertProperty(
+    //         aboutHtml,
+    //         propName,
+    //         updatedString
+    //       );
+    //     }
+    //     console.log(starFillingToInsertIntoAboutPage);
+    //     insertHtml("#main-content", starFillingToInsertIntoAboutPage);
+    //   },
+    //   false
+    // ); // False here because we are getting just regular HTML from the server, so no need to process JSON.
   });
-  // *** finish **
 
+  // *** finish **
   // Builds HTML for the home page based on categories array
   // returned from the server.
   function buildAndShowHomeHTML(categories) {
@@ -131,7 +131,7 @@ $(function () {
         var chosenCategoryShortName =
           chooseRandomCategory(categories)["short_name"];
 
-        console.log("Short name is: " + chosenCategoryShortName);
+        // console.log("Short name is: " + chosenCategoryShortName);
         // TODO: STEP 3: Substitute {{randomCategoryShortName}} in the home html snippet with the
         // chosen category from STEP 2. Use existing insertProperty function for that purpose.
         // Look through this code for an example of how to do use the insertProperty function.
@@ -143,16 +143,16 @@ $(function () {
         // Hint: you need to surround the chosen category short name with something before inserting
         // it into the home html snippet.
         //
-        console.log("homeHTML: " + homeHtml);
+        // console.log("homeHTML: " + homeHtml);
 
         var tempString = "'" + chosenCategoryShortName + "'";
-        console.log("Temp string is: " + tempString);
+        // console.log("Temp string is: " + tempString);
         var homeHtmlToInsertIntoMainPage = insertProperty(
           homeHtml,
           "randomCategoryShortName",
           tempString
         );
-        console.log("Edited HTML is: " + homeHtmlToInsertIntoMainPage);
+        // console.log("Edited HTML is: " + homeHtmlToInsertIntoMainPage);
         // TODO: STEP 4: Insert the produced HTML in STEP 3 into the main page
         // Use the existing insertHtml function for that purpose. Look through this code for an example
         // of how to do that.
@@ -175,6 +175,41 @@ $(function () {
   dc.loadMenuCategories = function () {
     showLoading("#main-content");
     $ajaxUtils.sendGetRequest(allCategoriesUrl, buildAndShowCategoriesHTML);
+  };
+
+  var aboutHtmlUrl = "snippets/about.html";
+  dc.loadStarRatings = function () {
+    // showLoading("#main-content");
+    $ajaxUtils.sendGetRequest(
+      aboutHtmlUrl,
+      function (aboutHtml) {
+        console.log("Before: " + aboutHtml);
+        var propName; // = "class";
+        var updatedString;
+        var randomStarRating = getRandomStarRating();
+        console.log("Random number is: " + randomStarRating);
+        for (let i = 1; i < 6; i++) {
+          propName = String("class") + i;
+          console.log("propToReplace is: '" + propName + "'");
+          if (randomStarRating >= i) {
+            updatedString = "fa fa-star";
+          } else {
+            updatedString = "fa fa-star-o";
+          }
+          console.log("PropToInsert: " + updatedString);
+          var starFillingToInsertIntoAboutPage = insertProperty(
+            aboutHtml,
+            propName,
+            updatedString
+          );
+          aboutHtml = starFillingToInsertIntoAboutPage;
+        }
+        aboutHtml = aboutHtml + randomStarRating + "-star rating";
+        console.log("After: " + starFillingToInsertIntoAboutPage);
+        insertHtml("#main-content", aboutHtml);
+      },
+      false
+    ); // False here because we are getting just regular HTML from the server, so no need to process JSON.
   };
 
   // Load the menu items view
