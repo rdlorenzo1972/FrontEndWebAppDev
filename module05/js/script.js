@@ -87,6 +87,34 @@ $(function () {
       }, // ***** <---- TODO: STEP 1: Substitute [...] ******
       true
     ); // Explicitly setting the flag to get JSON from server processed into an object literal
+
+    // Code here to JHU MS Students to uadd random star ratings
+    // Load home snippet page
+    var aboutHtmlUrl = "snippets/about.html";
+
+    $ajaxUtils.sendGetRequest(
+      aboutHtmlUrl,
+      function (aboutHtml) {
+        var propName = "";
+        var updatedString;
+        var randomStarRating = getRandomStarRating();
+        for (let i = 0; i < 5; i++) {
+          propName = propName + i.toString;
+          if (randomStarRating >= i) {
+            updatedString = "fa fa-star-o";
+          } else {
+            updatedString = "fa fa-star";
+          }
+          var starFillingToInsertIntoAboutPage = insertProperty(
+            aboutHtml,
+            propName,
+            updatedString
+          );
+        }
+        insertHtml("#main-content", starFillingToInsertIntoAboutPage);
+      },
+      false
+    ); // False here because we are getting just regular HTML from the server, so no need to process JSON.
   });
   // *** finish **
 
