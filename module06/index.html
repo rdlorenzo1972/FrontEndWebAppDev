@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="LunchCheck">
   <head>
-    <title>Lunch Checker</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="styles/bootstrap.min.css" />
     <style>
@@ -10,8 +9,11 @@
         font-weight: bold;
       }
     </style>
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <title>Lunch Checker</title>
   </head>
-  <body ng-app="LunchCheck">
+  <body>
     <div class="container" ng-controller="LunchCheckController">
       <h1>Lunch Checker</h1>
       <div class="form-group">
@@ -35,7 +37,5 @@
         {{lunchMessage}}
       </div>
     </div>
-    <script src="angular.min.js"></script>
-    <script src="app.js"></script>
   </body>
 </html>
