@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="LunchCheck">
+<html ng-app="LunchCheck">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="styles/bootstrap.min.css" />
@@ -13,6 +13,7 @@
     <script src="app.js"></script>
     <title>Lunch Checker</title>
   </head>
+
   <body>
     <div class="container" ng-controller="LunchCheckController">
       <h1>Lunch Checker</h1>
@@ -24,14 +25,13 @@
           class="form-control"
           ng-model="lunchItems"
         />
+        Empty items do not count, e.g. ,, or , ,
       </div>
-      {{lunchItems}}
       <div class="form-group">
-        <button class="btn btn-default" (click)="submitButton()">
+        <button class="btn btn-default" ng-click="lunchButton()">
           Check If Too Much
         </button>
       </div>
-
       <div class="form-group message">
         <!-- Your message can go here. -->
         {{lunchMessage}}
