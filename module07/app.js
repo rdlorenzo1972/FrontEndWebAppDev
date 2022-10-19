@@ -22,6 +22,10 @@
     var showList = this;
     showList.items = ShoppingListService.getBoughtItems();
 
+    showList.getTotalItemCost = function (QTY, itemPrice) {
+      return QTY * itemPrice;
+    };
+
     showList.addItem = function (itemIndex) {
       ShoppingListService.addBoughtItem(itemIndex);
     };
@@ -62,9 +66,6 @@
     };
 
     service.removeToBuyItem = function (itemIndex) {
-      toBuyItems[itemIndex]["totalItemCost"] =
-        toBuyItems[itemIndex]["quantity"] *
-        toBuyItems[itemIndex]["pricePerItem"];
       boughtItems.push(toBuyItems[itemIndex]);
       toBuyItems.splice(itemIndex, 1);
     };

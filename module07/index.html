@@ -24,8 +24,7 @@
         width: 60px;
       }
     </style>
-    <script src="angular.min.js"></script>
-    <script src="app.js"></script>
+
   </head>
   <body>
     <div class="container">
@@ -50,11 +49,13 @@
         <div class="col-md-5" ng-controller="Controller2 as ctrl2">
           <h2>Already Bought:</h2>
           <ul>
-            <li ng-repeat="item2 in ctrl2.items">Bought {{item2.quantity}} {{item2.name}}(s) for total price of {{item2.totalItemCost}}</li>
+            <li ng-repeat="item2 in ctrl2.items">Bought {{item2.quantity}} {{item2.name}}(s) for a total price of {{ctrl2.getTotalItemCost(item2.quantity, item2.pricePerItem) | currency : '$$$$$$' : 2}}</li>
           </ul>
           <div class="emptyMessage" ng-show="!ctrl2.items.length">Nothing bought yet.</div>
         </div>
       </div>
     </div>
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
   </body>
 </html>
