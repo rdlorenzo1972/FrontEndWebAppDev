@@ -1,11 +1,13 @@
 <div>
+  <h2>{{goodluck.notFound}}</h2>
   <ul ng-repeat="eachRowItem in goodluck.found ">
     <li>
+      <button class="btn btn-primary" ng-click="onRemove({index:$index})">
+        Don't want this one!
+      </button>
+
       {{eachRowItem.name}}, {{eachRowItem.short_name}},
       {{eachRowItem.description}},
     </li>
-    <button class="btn btn-primary" ng-click="onRemove({index:$index})">
-      Don't want this one!
-    </button>
   </ul>
 </div>

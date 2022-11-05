@@ -12,6 +12,7 @@
     var narCtrl = this;
     narCtrl.found = [];
     narCtrl.searchTerm = "";
+    //narCtrl.notFound = ""; // Just gonna use a String instead fo boolean and final String
 
     narCtrl.getMatches = function () {
       console.log("Inside CONTROLLER");
@@ -27,6 +28,12 @@
             console.log(
               "Inside promise then, found size is : " + narCtrl.found.length
             );
+
+            if (narCtrl.found.length > 0) {
+              narCtrl.notFound = "";
+            } else {
+              narCtrl.notFound = "Nothing Found";
+            }
           })
           .catch(function (error) {
             console.log("Error trying to match menu items.");
@@ -39,6 +46,9 @@
 
     narCtrl.removeItem = function (itemIndex) {
       MenuSearchService.removeItem(itemIndex);
+      if (narCtrl.found.length == 0) {
+        narCtrl.notFound = "Nothing Found/Remaining";
+      }
     };
   }
 
