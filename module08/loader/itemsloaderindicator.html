@@ -1,10 +1,11 @@
-<h1>finally made it</h1>
-<div class="loader">
-  <h1>Made it to directive area</h1>
-  <ol ng-repeat="eachItem in foundItems2.found">
+<div>
+  <ul ng-repeat="eachRowItem in goodluck.found ">
     <li>
-      {{eachItem.name}}, {{eachItem.short_name}}, {{eachItem.description}}
+      {{eachRowItem.name}}, {{eachRowItem.short_name}},
+      {{eachRowItem.description}},
     </li>
-    <button class=""btn btn-primary" ng-click="onRemove({index:$index})">Don't want this one!</button>
-  </ol>
+    <button class="btn btn-primary" ng-click="onRemove({index:$index})">
+      Don't want this one!
+    </button>
+  </ul>
 </div>

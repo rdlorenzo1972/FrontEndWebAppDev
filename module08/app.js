@@ -45,7 +45,6 @@
   MenuSearchService.$inject = ["$http"];
   function MenuSearchService($http) {
     var service = this;
-    var boughtItems = [];
 
     service.getMatchedMenuItems = function (searchTerm) {
       service.found = [];
@@ -93,7 +92,7 @@
     var ddo = {
       templateUrl: "loader/itemsloaderindicator.html",
       scope: {
-        foundItem: "<",
+        goodluck: "<",
         onRemove: "&",
       },
     };
