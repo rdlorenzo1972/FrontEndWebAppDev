@@ -17,7 +17,7 @@
       .state("categories", {
         url: "/categories",
         templateUrl: "src/template/categories.template.html",
-        controller: "CategoriesController as catsCtrl",
+        controller: "CategoriesController as catsCTRL",
         resolve: {
           item: [
             "MenuDataService",

@@ -1,9 +1,16 @@
 <div>
   Inside Component HTML
-
+  <a ui-sref="home">Home</a> &lt; Categories
+  <br />
   <ul>
-    <li ng-repeat="catItem in catsCTRL.items">
+    <li ng-repeat="catItem in catsCtrl.items">
       {{ catItem.name }}
     </li>
   </ul>
 </div>
+
+<h1>Welcome to Our Restaurant</h1>
+
+<a ui-sref="home">Home</a> &lt; Categories
+<br />
+<categories></categories>

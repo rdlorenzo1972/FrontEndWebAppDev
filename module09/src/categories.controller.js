@@ -1,11 +1,12 @@
 (function () {
   angular
-    .module("MenuApp")
+    .module("data")
     .controller("CategoriesController", CategoriesController);
 
-  CategoriesController.$inject = ["item"];
+  CategoriesController.$inject = ["item"]; // From routes.js, next change to items since plural
   function CategoriesController(item) {
     var catCTRL = this;
-    catCTRL.items = item;
+    catCTRL.items = item; // item is passed param, but items is array.
+    // Might need to change is confusing item versus items
   }
 })();
