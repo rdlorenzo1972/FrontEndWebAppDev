@@ -1,8 +1,12 @@
 (function () {
   angular.module("MenuApp").config(RoutesConfig);
 
-  RoutesConfig.$inject = ["$stateProvider", "$urlRouterProvider"];
-  function RoutesConfig($stateProvider, $urlRouterProvider) {
+  RoutesConfig.$inject = [
+    "$stateProvider",
+    "$urlRouterProvider",
+    "$locationProvider",
+  ];
+  function RoutesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
     // Redirect to tab 1 if no other URL matches
     $urlRouterProvider.otherwise("/home");
 
@@ -27,6 +31,8 @@
           ],
         },
       });
+
+    $locationProvider.html5Mode(true);
 
     // .state("tab2", {
     //   url: "/tab2",
