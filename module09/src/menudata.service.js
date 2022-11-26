@@ -18,6 +18,9 @@
             console.log("Inside category push, number: " + index);
             service.categories.push(response.data[index]);
           }
+          console.log(
+            "Returning categories array, size: " + service.categories.length
+          );
           return service.categories;
         },
         function errorCallback(response) {

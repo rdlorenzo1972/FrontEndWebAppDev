@@ -1,6 +1,6 @@
 (function () {
   angular
-    .module("data")
+    .module("MenuApp")
     .controller("CategoriesController", CategoriesController);
 
   CategoriesController.$inject = ["item"];
