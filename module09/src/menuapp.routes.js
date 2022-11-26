@@ -3,14 +3,34 @@
 
   RoutesConfig.$inject = ["$stateProvider", "$urlRouterProvider"];
   function RoutesConfig($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise("/");
+    // Redirect to tab 1 if no other URL matches
+    $urlRouterProvider.otherwise("/home");
 
-    //
-    $stateProvider.state("home", {
-      url: "/",
-      templateUrl: "src/template/home.template.html",
-    });
+    // Set up UI states
+    $stateProvider
+      .state("home", {
+        url: "/home",
+        templateUrl: "src/template/home.template.html",
+      })
 
-    // Need to create categorie and detail states.
+      // Category list state
+      .state("categories", {
+        url: "/categories",
+        templateUrl: "src/template/categories.template.html",
+        controller: "CategoriesController as catsCTRL",
+        resolve: {
+          item: [
+            "MenuDataService",
+            function (MenuDataService) {
+              return MenuDataService.getAllCategories();
+            },
+          ],
+        },
+      });
+
+    // .state("tab2", {
+    //   url: "/tab2",
+    //   templateUrl: "src/tab2.html",
+    // });
   }
 })();
