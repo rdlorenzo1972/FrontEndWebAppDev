@@ -42,6 +42,7 @@
               categoryShortName
           );
           console.log(response.data);
+          // FYI, response.data contains two arrays, need to get value of "menuy_items" key
           return response.data;
         },
         function errorCallback(response) {
