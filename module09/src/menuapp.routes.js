@@ -26,6 +26,21 @@
             },
           ],
         },
+      })
+
+      .state("items", {
+        url: "/items/{category}",
+        templateUrl: "src/template/items.template.html",
+        controller: "CategoryItemsController as catItemsCtrl",
+        resolve: {
+          catItems: [
+            "$stateParams",
+            "MenuDataService",
+            function ($stateParams, MenuDataService) {
+              return MenuDataService.getItemsForCategory($stateParams.category);
+            },
+          ],
+        },
       });
 
     // .state("tab2", {

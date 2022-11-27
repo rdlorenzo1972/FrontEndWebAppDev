@@ -1,3 +1,8 @@
 <ul>
-  <li ng-repeat="eachitem in $ctrl.things">{{ eachitem.name }}</li>
+  <li
+    ng-repeat="eachitem in $ctrl.things"
+    ui-sref="items({category: eachitem.short_name})"
+  >
+    <a>{{ eachitem.name }} - {{ eachitem.short_name }}</a>
+  </li>
 </ul>

@@ -5,6 +5,7 @@
   MenuDataService.$inject = ["$http"]; //var service = this;
   function MenuDataService($http) {
     var service = this;
+
     service.getAllCategories = function () {
       service.categories = [];
       return $http({
@@ -23,6 +24,31 @@
         function errorCallback(response) {
           // Provide info to help understanding error R/C
           console.log("Error retrieving categories: " + response.error);
+        }
+      );
+    };
+
+    service.getItemsForCategory = function (categoryShortName) {
+      return $http({
+        method: "GET",
+        url:
+          "https://davids-restaurant.herokuapp.com/menu_items.json?category=" +
+          categoryShortName,
+        // The correct categoryShortName is the actual short name, e.g. L instead of Lunch
+      }).then(
+        function successCallback(response) {
+          console.log(
+            "https://davids-restaurant.herokuapp.com/menu_items.json?category=" +
+              categoryShortName
+          );
+          console.log(response.data);
+          return response.data;
+        },
+        function errorCallback(response) {
+          // Provide info to help understanding error R/C
+          console.log(
+            "Error retrieving categories sub-items: " + response.error
+          );
         }
       );
     };
