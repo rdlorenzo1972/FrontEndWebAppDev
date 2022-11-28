@@ -10,7 +10,8 @@
       service.categories = [];
       return $http({
         method: "GET",
-        url: "https://davids-restaurant.herokuapp.com/categories.json",
+        //url: "https://davids-restaurant.herokuapp.com/categories.json",
+        url: "https://coursera-jhu-default-rtdb.firebaseio.com/categories.json",
       }).then(
         function successCallback(response) {
           // Study success and successCallback
@@ -31,15 +32,18 @@
     service.getItemsForCategory = function (categoryShortName) {
       return $http({
         method: "GET",
+        // url: "https://davids-restaurant.herokuapp.com/menu_items.json?category=" + categoryShortName,
         url:
-          "https://davids-restaurant.herokuapp.com/menu_items.json?category=" +
-          categoryShortName,
+          "https://coursera-jhu-default-rtdb.firebaseio.com/menu_items/" +
+          categoryShortName +
+          ".json",
         // The correct categoryShortName is the actual short name, e.g. L instead of Lunch
       }).then(
         function successCallback(response) {
           console.log(
-            "https://davids-restaurant.herokuapp.com/menu_items.json?category=" +
-              categoryShortName
+            "https://coursera-jhu-default-rtdb.firebaseio.com/menu_items/" +
+              categoryShortName +
+              ".json"
           );
           console.log(response.data);
           // FYI, response.data contains two arrays, need to get value of "menuy_items" key
