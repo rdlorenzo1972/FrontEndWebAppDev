@@ -10,7 +10,7 @@
     />
     <span ng-if="signUpForm.firstName.$invalid && signUpForm.firstName.$touched"
       >First Name is Required</span
-    >{{signUpCtrl.userInfo.firstName}}
+    >
     <br />
 
     <label>Last Name</label>
@@ -59,17 +59,26 @@
     <label>Favorite Dish (short name)</label>
     <input
       type="text"
+      name="favDish"
       placeholder="Favorite Dish"
       ng-model="signUpCtrl.userInfo.favDish"
       ng-blur="signUpCtrl.checkFav()"
     />
     <!-- checkFav() to set invalidFav boolean -->
     <span ng-if="signUpCtrl.invalidFav">
-      Sorry, menu item does NOT exist, please confirm short name
+      Sorry, menu item does NOT exist, please confirm menu item number
     </span>
     <br />
 
     <!-- Modify so button border is red or green based on valid form entries/ -->
-    <button type="submit" ng-click="signUpCtrl.submit()">Submit</button>
+    <button
+      type="submit"
+      ng-disabled="signUpForm.$invalid"
+      ng-click="signUpCtrl.submit()"
+    >
+      Submit
+    </button>
+    <br />
   </form>
+  <div ng-if="signUpCtrl.formSubmitted">You information has been saved.</div>
 </div>

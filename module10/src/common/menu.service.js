@@ -22,12 +22,19 @@
     };
 
     // Need to research REST structure
-    // Confirm with Module 09
+    // NOTE: Different structure than Module 09
+    // ApiPath / menu_itmes / c(cat short name) / menu_items / (menu number).json
     service.getMenuItem = function (shortName) {
+      console.log("Inside MenuService, getmenuItem, looking for: " + shortName);
       return $http
         .get(ApiPath + "/menu_items/" + shortName + ".json")
         .then(function (response) {
+          console.log("Retrieved fav item is: " + response);
           return response.data;
+        })
+        .catch(function (response) {
+          console.log("Error retrieving favorite dish");
+          return;
         });
     };
   }
