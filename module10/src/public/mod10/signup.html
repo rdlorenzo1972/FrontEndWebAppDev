@@ -1,0 +1,75 @@
+<div>
+  <form name="signUpForm" novalidate>
+    <label>First Name</label>
+    <input
+      type="text"
+      name="firstName"
+      placeholder="First Name"
+      ng-model="signUpCtrl.userInfo.firstName"
+      required
+    />
+    <span ng-if="signUpForm.firstName.$invalid && signUpForm.firstName.$touched"
+      >First Name is Required</span
+    >{{signUpCtrl.userInfo.firstName}}
+    <br />
+
+    <label>Last Name</label>
+    <input
+      type="text"
+      name="lastName"
+      placeholder="Last Name"
+      ng-model="signUpCtrl.userInfo.lastName"
+      required
+    />
+    <span ng-if="signUpForm.lastName.$invalid && signUpForm.lastName.$touched"
+      >Last Name is Required</span
+    >
+    <br />
+
+    <label>Email Address</label>
+    <input
+      type="email"
+      name="email"
+      placeholder="Email Address"
+      ng-model="signUpCtrl.userInfo.email"
+      required
+    />
+    <span ng-if="signUpForm.email.$invalid && signUpForm.email.$touched"
+      >Must enter a valid email address</span
+    >
+    <br />
+
+    <!-- Phone number is not required, but if entered
+    must follow format -->
+    <label>Phone Number</label>
+    <input
+      type="text"
+      name="phone"
+      placeholder="Phone ###-###-####"
+      ng-model="signUpCtrl.userInfo.phone"
+      pattern="(\d{3})-(\d{3})-(\d{4})"
+    />
+    <span ng-if="signUpForm.phone.$invalid && signUpForm.phone.$touched"
+      >Please enter phone number using the following format: ###-###-####</span
+    >
+    <br />
+
+    <!-- Not required, but add onblur to check dish and
+    set boolean accordingly (will need set initial boolean value?) -->
+    <label>Favorite Dish (short name)</label>
+    <input
+      type="text"
+      placeholder="Favorite Dish"
+      ng-model="signUpCtrl.userInfo.favDish"
+      ng-blur="signUpCtrl.checkFav()"
+    />
+    <!-- checkFav() to set invalidFav boolean -->
+    <span ng-if="signUpCtrl.invalidFav">
+      Sorry, menu item does NOT exist, please confirm short name
+    </span>
+    <br />
+
+    <!-- Modify so button border is red or green based on valid form entries/ -->
+    <button type="submit" ng-click="signUpCtrl.submit()">Submit</button>
+  </form>
+</div>
