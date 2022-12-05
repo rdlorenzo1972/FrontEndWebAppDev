@@ -1,0 +1,31 @@
+<!-- This will be used inside ui-view, so,
+plan is to finsih content first and then improve style -->
+
+<div>
+  <!-- Seen by all -->
+  <h2>My Information</h2>
+</div>
+<br />
+
+<!-- Only seen by those already registered -->
+<div ng-if="myInfoCtrl.userInfo">
+  First name: {{myInfoCtrl.userInfo.firstName}} <br />
+  Last name: {{myInfoCtrl.userInfo.lastName}} <br />
+  Email address: {{myInfoCtrl.userInfo.email}} <br />
+  Telephone number: {{myInfoCtrl.userInfo.phone}} <br />
+  <br />
+  <fieldset>
+    <legend>Favorite Menu Item</legend>
+    Title: {{myInfoCtrl.favDishObject.name}} <br />
+    Description: {{myInfoCtrl.favDishObject.description}} <br />
+    <!-- Need to verify size (fix if needed), then what is alternate text?-->
+    <img
+      ng-src="/images/menu/{{myInfoCtrl.favDishCategory}}/{{myInfoCtrl.favDishObject.short_name}}.jpg"
+    />
+  </fieldset>
+</div>
+
+<!-- Only seen by those NOT already registered -->
+<div ng-if="!myInfoCtrl.userInfo">
+  <h2>Not Signed Up Yet. <a ui-sref="public.signup">Sign Up Now!</a></h2>
+</div>
