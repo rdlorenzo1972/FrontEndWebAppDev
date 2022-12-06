@@ -44,6 +44,7 @@
             console.log("Response returned equates to zero");
             signupInfo.invalidFav = true;
           } else {
+            console.log("Response returned: signupInfo.invalidFav = false");
             signupInfo.invalidFav = false;
           }
         })

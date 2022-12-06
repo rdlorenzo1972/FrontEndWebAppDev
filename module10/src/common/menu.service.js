@@ -85,7 +85,7 @@
       //favDishCatItem = favDishCatItem.toUpperCase();
       console.log("Determined favDish category item is: " + favDishCatItem);
       // Minus 1 from fav number to get actual dish site address
-      return favDishCatItem;
+      return favDishCatItem - 1;
     };
   }
 })();
