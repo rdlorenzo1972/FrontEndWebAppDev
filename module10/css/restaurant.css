@@ -138,6 +138,10 @@ form input {
   width: 30%;
 }
 
+form button {
+  color: black;
+}
+
 fieldset {
   border: black;
   border-style: solid;

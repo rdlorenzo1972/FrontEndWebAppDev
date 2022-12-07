@@ -26,6 +26,10 @@
     // ApiPath / menu_items / c(cat short name) / menu_items / (menu number).json
     service.getMenuItem = function (shortName) {
       console.log("Inside MenuService, getmenuItem, looking for: " + shortName);
+      // if (!shortName || shortName == "" || shortName == null) {
+      //   throw Error;
+      // }
+
       var catShortname = service.getCategory(shortName);
       var urlString =
         ApiPath +
